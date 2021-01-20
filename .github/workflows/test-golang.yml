@@ -1,0 +1,22 @@
+name: Test Golang
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  preview:
+    name: Preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.13.1'
+      - name: Install pulumi
+        uses: pulumi/action-install-pulumi-cli@v1.0.1
+        with:
+          pulumi-version: 2.16.2
+      - uses: pulumi/actions@v2-dev
+        with:
+          command: preview
+          stack_name: dev

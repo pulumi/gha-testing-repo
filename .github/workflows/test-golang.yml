@@ -18,7 +18,7 @@ jobs:
         uses: pulumi/action-install-pulumi-cli@v1.0.1
         with:
           pulumi-version: 2.16.2
-      - uses: pulumi/actions@v2-dev
+      - uses: pulumi/actions@add-basics
         with:
           command: preview
           stack-name: dev

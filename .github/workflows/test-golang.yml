@@ -20,10 +20,12 @@ jobs:
         with:
           pulumi-version: 2.16.2
       - run: pulumi login --local
+        working-directory: golang/
       - run: pulumi stack init dev
+        working-directory: golang/
       - uses: pulumi/actions@add-basics
         if: always()
         with:
           command: preview
           stack-name: dev
-          cwd: ./golang/
+          cwd: ./golang

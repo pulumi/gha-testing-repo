@@ -20,7 +20,9 @@ jobs:
         with:
           pulumi-version: 2.16.2
       - run: pulumi login --local
+      - run: pulumi stack init dev
       - uses: pulumi/actions@add-basics
+        if: always()
         with:
           command: preview
           stack-name: dev

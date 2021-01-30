@@ -23,6 +23,8 @@ jobs:
         working-directory: golang/
       - run: pulumi stack init dev
         working-directory: golang/
+        env:
+          PULUMI_CONFIG_PASSPHRASE: not-a-secret
       - uses: pulumi/actions@add-basics
         if: always()
         with:

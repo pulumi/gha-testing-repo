@@ -19,6 +19,7 @@ jobs:
         uses: pulumi/action-install-pulumi-cli@v1.0.1
         with:
           pulumi-version: 2.16.2
+      - run: pulumi login --local
       - uses: pulumi/actions@add-basics
         with:
           command: preview

@@ -22,4 +22,4 @@ jobs:
         with:
           command: preview
           stack-name: dev
-          cwd: golang/
+          cwd: ./golang/

@@ -114,3 +114,30 @@ jobs:
           command: destroy
           stack-name: dev
           cwd: ./golang
+  wrong-config:
+    name: Config Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: ls -l
+      - uses: actions/setup-go@v2
+        with:
+          go-version: "^1.13.1"
+      - name: Install pulumi
+        uses: pulumi/action-install-pulumi-cli@v1.0.1
+        with:
+          pulumi-version: 2.16.2
+      - run: pulumi login --local
+        working-directory: golang/
+      - run: pulumi stack init dev
+        working-directory: golang/
+        env:
+          PULUMI_CONFIG_PASSPHRASE: not-a-secret
+      - uses: pulumi/actions@add-basics
+        if: always()
+        env:
+          PULUMI_CONFIG_PASSPHRASE: not-a-secret
+        with:
+          command: no-exist
+          stack-name: dev
+          cwd: ./golang

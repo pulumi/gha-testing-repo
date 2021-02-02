@@ -52,7 +52,7 @@ jobs:
         working-directory: golang/
         env:
           PULUMI_CONFIG_PASSPHRASE: not-a-secret
-      - uses: pulumi/actions@add-ss
+      - uses: pulumi/actions@v2-dev
         if: always()
         env:
           PULUMI_CONFIG_PASSPHRASE: not-a-secret

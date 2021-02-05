@@ -1,0 +1,30 @@
+name: Test PR
+on:
+  pull_request:
+
+jobs:
+  preview:
+    name: Preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: ls -l
+      - uses: actions/setup-go@v2
+        with:
+          go-version: "^1.13.1"
+      - name: Install pulumi
+        uses: pulumi/action-install-pulumi-cli@v1.0.1
+      - run: pulumi login --local
+        working-directory: golang/
+      - run: pulumi stack init dev
+        working-directory: golang/
+        env:
+          PULUMI_CONFIG_PASSPHRASE: not-a-secret
+      - uses: pulumi/actions@master
+        with:
+          command: preview
+          stack-name: dev
+          work-dir: ./golang
+          comment-on-pr: true
+        env:
+          PULUMI_CONFIG_PASSPHRASE: not-a-secret

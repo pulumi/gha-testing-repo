@@ -26,5 +26,6 @@ jobs:
           stack-name: dev
           work-dir: ./golang
           comment-on-pr: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
           PULUMI_CONFIG_PASSPHRASE: not-a-secret

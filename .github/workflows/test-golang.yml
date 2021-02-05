@@ -32,7 +32,7 @@ jobs:
         with:
           command: preview
           stack-name: dev
-          cwd: ./golang
+          work-dir: ./golang
   up:
     name: Up
     runs-on: ubuntu-latest
@@ -59,7 +59,7 @@ jobs:
         with:
           command: up
           stack-name: dev
-          cwd: ./golang
+          work-dir: ./golang
   refresh:
     name: Refresh
     runs-on: ubuntu-latest
@@ -86,7 +86,7 @@ jobs:
         with:
           command: refresh
           stack-name: dev
-          cwd: ./golang
+          work-dir: ./golang
   destroy:
     name: Destroy
     runs-on: ubuntu-latest
@@ -113,7 +113,7 @@ jobs:
         with:
           command: destroy
           stack-name: dev
-          cwd: ./golang
+          work-dir: ./golang
   wrong-config:
     name: Config Validation
     runs-on: ubuntu-latest
@@ -140,4 +140,4 @@ jobs:
         with:
           command: no-exist
           stack-name: dev
-          cwd: ./golang
+          work-dir: ./golang

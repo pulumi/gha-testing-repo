@@ -11,6 +11,11 @@ func main() {
 		if err != nil {
 			return err
 		}
+
+		_, err = random.NewRandomPassword(ctx, "my-password", &random.RandomPasswordArgs{
+			Length: pulumi.Int(30),
+		})
+
 		return nil
 	})
 }

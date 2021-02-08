@@ -10,9 +10,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - if: github.event.action == "test-1"
+      - if: github.event.action == 'test-1'
         run: echo "Running from test-1"
-      - if: github.event.action == "test-2"
+      - if: github.event.action == 'test-2'
         run: echo "Running from test-2"
-      - if: github.event.action == "test-3"
+      - if: github.event.action == 'test-3'
         run: echo "Running from test-3"

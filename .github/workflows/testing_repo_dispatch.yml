@@ -1,0 +1,13 @@
+name: Test Repository Dispatch Events
+on:
+  repository_dispatch:
+    types:
+      - "test-1"
+      - "test-2"
+      - "test-3"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ toJson(github) }}"

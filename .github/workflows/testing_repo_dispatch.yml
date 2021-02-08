@@ -7,12 +7,26 @@ on:
       - "test-3"
 
 jobs:
-  test:
+  test1:
     runs-on: ubuntu-latest
+    if: github.event.action == 'test-1'
     steps:
-      - if: github.event.action == 'test-1'
-        run: echo "Running from test-1"
-      - if: github.event.action == 'test-2'
-        run: echo "Running from test-2"
-      - if: github.event.action == 'test-3'
-        run: echo "Running from test-3"
+      - run: echo "Running from test-1"
+
+  test2:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'test-2'
+    steps:
+      - run: echo "Running from test-2"
+
+  test3:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'test-3'
+    steps:
+      - run: echo "Running from test-3"
+
+  test-summation:
+    runs-on: ubuntu-latest
+    needs: [test1, test2, test3]
+    steps:
+      - run: "echo finished"

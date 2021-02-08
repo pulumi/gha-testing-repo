@@ -28,5 +28,6 @@ jobs:
   test-summation:
     runs-on: ubuntu-latest
     needs: [test1, test2, test3]
+    if: always()
     steps:
       - run: "echo finished"

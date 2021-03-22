@@ -58,7 +58,7 @@ jobs:
           PULUMI_CONFIG_PASSPHRASE: not-a-secret
         with:
           command: up
-          preview: true
+          refresh: true
           stack-name: dev
           work-dir: ./golang
   refresh:

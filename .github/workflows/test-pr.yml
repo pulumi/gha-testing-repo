@@ -29,5 +29,6 @@ jobs:
           work-dir: ./golang
           comment-on-pr: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          edit-pr-comment: true
         env:
           PULUMI_CONFIG_PASSPHRASE: not-a-secret

@@ -20,7 +20,7 @@ jobs:
         working-directory: golang/
         env:
           PULUMI_CONFIG_PASSPHRASE: not-a-secret
-      - uses: pulumi/actions@master
+      - uses: pulumi/actions@preview-pr-148
         with:
           command: preview
           stack-name: dev
